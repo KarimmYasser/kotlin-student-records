@@ -61,14 +61,13 @@ fun main() {
 }
 
 // function to print only students who passed (score >= 60)
-fun report(m: Map<String, Int>) {
-    if (m.isEmpty()) {
+fun report(scores: Map<String, Int>) {
+    if (scores.isEmpty()) {
         println("empty map")
         return
     }
 
-    val passed = m.filter { it.value >= 60 }
-    for ((n, s) in passed) {
-        println("$n: $s")
-    }
+    scores.filter { it.value >= 60 }
+        .map { "${it.key}: ${it.value}" }
+        .forEach { println(it) }
 }
